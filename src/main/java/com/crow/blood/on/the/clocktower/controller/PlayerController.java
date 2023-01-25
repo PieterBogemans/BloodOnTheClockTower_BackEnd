@@ -22,9 +22,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.crow.blood.on.the.clocktower.model.GamePlayer;
 import com.crow.blood.on.the.clocktower.model.Player;
+import com.crow.blood.on.the.clocktower.model.statistics.PlayerStatistics;
 import com.crow.blood.on.the.clocktower.repository.AbstractRepository;
 import com.crow.blood.on.the.clocktower.repository.PlayerRepository;
 import com.crow.blood.on.the.clocktower.service.GamePlayerService;
+import com.crow.blood.on.the.clocktower.service.PlayerService;
 
 /**
  * @author $Author: bogemapi $
@@ -41,6 +43,9 @@ public class PlayerController extends AbstractController<Player> {
 	@Autowired
 	GamePlayerService gamePlayerService;
 
+	@Autowired
+	PlayerService playerService;
+
 	@Override
 	protected AbstractRepository getRepository() {
 		return repository;
@@ -51,6 +56,13 @@ public class PlayerController extends AbstractController<Player> {
 	public @ResponseBody
 	List<GamePlayer> getGamePlayers(@RequestBody Player player) {
 		return gamePlayerService.getGamePlayers(player);
+	}
+
+	@CrossOrigin
+	@RequestMapping(value = "/playerstats", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody
+	PlayerStatistics getPlayerStats(@RequestBody Player player) {
+		return playerService.getPlayerStats(player);
 	}
 
 

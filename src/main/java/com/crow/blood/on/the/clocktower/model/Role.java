@@ -40,7 +40,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 @JsonSerialize
-public class Role implements Serializable {
+public class Role implements Serializable, Named {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)

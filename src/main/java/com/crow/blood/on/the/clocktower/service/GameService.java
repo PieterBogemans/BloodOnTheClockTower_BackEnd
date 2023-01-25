@@ -47,7 +47,6 @@ public class GameService {
 
 	public Game addGame(final Game game) {
 		try  {
-
 			getData(game);
 			Game savedGame = gameRepository.save(game);
 			Game gameReference = gameRepository.getReferenceById(savedGame.getId());
