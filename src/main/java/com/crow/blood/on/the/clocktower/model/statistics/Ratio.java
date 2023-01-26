@@ -32,7 +32,7 @@ public class Ratio {
 
 	@JsonIgnore
 	public double getRatio() {
-		return positive / getTotal();
+		return ((double) positive) / getTotal();
 	}
 
 	public long getTotal() {

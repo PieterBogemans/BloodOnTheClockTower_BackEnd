@@ -26,7 +26,7 @@ import com.crow.blood.on.the.clocktower.model.Role;
 @Repository
 public interface PlayerRepository extends AbstractRepository<Player> {
 
-	@Query("SELECT player FROM Player player WHERE name = ?1")
+	@Query("SELECT player FROM Player player WHERE name = ?1 ORDER BY name")
 	Optional<Player> findByName(String name);
 
 }

@@ -59,7 +59,7 @@ public class PlayerController extends AbstractController<Player> {
 	}
 
 	@CrossOrigin
-	@RequestMapping(value = "/playerstats", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value = "/stats", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody
 	PlayerStatistics getPlayerStats(@RequestBody Player player) {
 		return playerService.getPlayerStats(player);
